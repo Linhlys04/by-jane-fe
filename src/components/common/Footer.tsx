@@ -31,13 +31,12 @@ export default function Footer() {
               />
             </Link>
             <p className="text-sm leading-7 text-gray-500 mb-8 pr-4">
-              BYJANE - Thương hiệu thời trang phong cách, mang đến những bộ sưu tập 
-              trẻ trung, hiện đại và đề cao sự thoải mái cho giới trẻ Việt Nam.
+              BYJANE – Thương hiệu thời trang mang phong cách trẻ trung, hiện đại, hướng đến sự tối giản nhưng tinh tế, đề cao cảm giác thoải mái và tính ứng dụng trong cuộc sống hàng ngày của giới trẻ Việt Nam.
             </p>
             
             {/* Social Icons: Minimalist Style */}
             <div className="flex gap-4">
-              <SocialLink href="https://shopee.vn/byjane.hn" icon={<SiShopee size={18} />} label="Shopee" />
+              <SocialLink href="https://shopee.vn/conbita?categoryId=100017&entryPoint=ShopByPDP&itemId=26733402878" icon={<SiShopee size={18} />} label="Shopee" />
               <SocialLink href="https://www.tiktok.com/@byjane.vn" icon={<SiTiktok size={18} />} label="TikTok" />
             </div>
           </div>
@@ -72,7 +71,8 @@ export default function Footer() {
               <li className="flex items-start gap-3 group">
                 <MapPin size={18} className={`mt-0.5 shrink-0 ${brandColor}`} />
                 <span className="group-hover:text-gray-900 transition-colors duration-200">
-                  90 Đ. Ngô Gia Tự, Suối Hoa,<br/> Bắc Ninh, Việt Nam
+                  Vạn Hạnh, Từ Sơn
+<br/> Bắc Ninh, Việt Nam
                 </span>
               </li>
               <li className="flex items-center gap-3 group">
