@@ -12,13 +12,13 @@ export default function CategoryList({ data }: { data: Category[] }) {
   if (!data || data.length === 0) return null;
 
   // CẮT DỮ LIỆU: Chỉ lấy 6 phần tử đầu tiên
-  const displayCategories = data.slice(0, 6);
+  const displayCategories = data.slice(0, 4);
 
   return (
     <section className="py-12 bg-white mt-10 md:mt-20">
       <div className="container mx-auto px-4">
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-10 gap-x-6 justify-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
           
           {/* Map trên danh sách đã cắt (displayCategories) thay vì data gốc */}
           {displayCategories.map((cat) => (

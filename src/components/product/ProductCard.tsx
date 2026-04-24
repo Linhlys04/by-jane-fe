@@ -13,7 +13,7 @@ export default function ProductCard({ product }: { product: Product }) {
       <div className="bg-white rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl border border-transparent hover:border-gray-100">
         
         {/* 1. KHUNG ẢNH */}
-        <div className="relative aspect-3/4 overflow-hidden bg-gray-100">
+        <div className="relative aspect-square overflow-hidden bg-gray-100">
           {/* Logic ở đây đã đúng với API mới:
              product.image bây giờ là string (URL ảnh thumbnail) 
              chứ không phải mảng, nên dùng trực tiếp được.
@@ -21,7 +21,7 @@ export default function ProductCard({ product }: { product: Product }) {
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 mix-blend-multiply"
+            className="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
           />
           
           {/* Tem giảm giá */}

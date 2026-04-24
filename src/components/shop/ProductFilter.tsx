@@ -11,10 +11,10 @@ interface Category {
 }
 
 const PRICE_RANGES = [
-  { label: "Dưới 200.000đ", value: "0-200000" },
-  { label: "200.000đ - 500.000đ", value: "200000-500000" },
-  { label: "500.000đ - 1.000.000đ", value: "500000-1000000" },
-  { label: "Trên 1.000.000đ", value: "1000000-99999999" },
+  { label: "Dưới 50.000đ", value: "0-50000" },
+  { label: "50.000đ - 70.000đ", value: "50000-70000" },
+  { label: "70.000đ - 100.000đ", value: "70000-100000" },
+  { label: "100.000đ", value: "100000-150000" },
 ];
 
 export default function ProductFilter({ categories }: { categories: Category[] }) {

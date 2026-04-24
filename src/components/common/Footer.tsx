@@ -36,7 +36,7 @@ export default function Footer() {
             
             {/* Social Icons: Minimalist Style */}
             <div className="flex gap-4">
-              <SocialLink href="https://shopee.vn/conbita?categoryId=100017&entryPoint=ShopByPDP&itemId=26733402878" icon={<SiShopee size={18} />} label="Shopee" />
+              <SocialLink href="https://shopee.vn/byjane.hn" icon={<SiShopee size={18} />} label="Shopee" />
               <SocialLink href="https://www.tiktok.com/@byjane.vn" icon={<SiTiktok size={18} />} label="TikTok" />
             </div>
           </div>
@@ -78,7 +78,7 @@ export default function Footer() {
               <li className="flex items-center gap-3 group">
                 <Phone size={18} className={`shrink-0 ${brandColor}`} />
                 <span className="group-hover:text-gray-900 transition-colors duration-200 font-medium">
-                  1900 123 456
+                  0348277085
                 </span>
               </li>
               <li className="flex items-center gap-3 group">
