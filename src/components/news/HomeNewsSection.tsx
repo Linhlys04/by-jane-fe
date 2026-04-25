@@ -23,14 +23,14 @@ const montserrat = Montserrat({
 // --- BANNER TĨNH (Giữ nguyên hoặc lấy từ API Global sau này) ---
 const STATIC_BANNER = {
   id: 99,
-  title: "BỘ SƯU TẬP THU ĐÔNG 2025",
+  title: "BỘ SƯU TẬP CHÀO HÈ",
   subTitle: "SẮP RA MẮT",
-  coverImage: "/images/products/banner_article.jpg",
+  coverImage: "/images/products/blogbyjane.jpg",
   link: "/blog", // Tạm thời link về blog
 };
 
 export default async function HomeNewsSection() {
-  // 1. GỌI API: Lấy 3 bài viết mới nhất
+  // 1. GỌI API: Lấy 3 bài viết 
   const { data: rawData } = await getArticles({
     pagination: {
       page: 1,

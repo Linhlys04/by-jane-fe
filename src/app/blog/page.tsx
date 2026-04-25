@@ -34,8 +34,12 @@ export default async function BlogPage(props: {
   const totalPages = Math.max(1, meta?.pagination?.pageCount || 1);
 
   // 4. CHIA LAYOUT
-  const featuredArticles = currentPage === 1 ? articles.slice(0, 3) : [];
-  const listArticles = currentPage === 1 ? articles.slice(3) : articles;
+  // Chỉ hiển thị hero khi trang 1 có đủ 3 bài.
+  // Nếu ít hơn 3 bài thì render tất cả ở grid để tránh trang trắng.
+  const canShowHero = currentPage === 1 && articles.length >= 3;
+  const featuredArticles = canShowHero ? articles.slice(0, 3) : [];
+  const listArticles = canShowHero ? articles.slice(3) : articles;
+  const hasVisibleArticles = featuredArticles.length > 0 || listArticles.length > 0;
 
   // --- 5. LOGIC TÍNH TOÁN PHÂN TRANG (Sliding Window) ---
   const MAX_VISIBLE_PAGES = 3;
@@ -69,7 +73,7 @@ export default async function BlogPage(props: {
         <section className="container mx-auto px-4 pb-20"> 
             
             {/* --- HERO SECTION (BENTO GRID) --- */}
-            {currentPage === 1 && featuredArticles.length >= 3 && (
+            {canShowHero && (
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-16 h-auto lg:h-[500px]">
                     
                     {/* Ô TO NHẤT */}
@@ -129,41 +133,40 @@ export default async function BlogPage(props: {
                 </h3>
             )}
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {listArticles.map((item: any) => (
-                    <Link href={`/blog/${item.slug}`} key={item.id} className="group flex flex-col gap-3">
-                        <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden bg-gray-100">
-                            {item.coverImage ? (
-                                <Image 
-                                    src={item.coverImage} 
-                                    alt={item.title} 
-                                    fill 
-                                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                                    unoptimized
-                                />
-                            ) : (
-                                <div className="w-full h-full flex items-center justify-center text-gray-400">No Image</div>
-                            )}
-                        </div>
-                        <div className="flex flex-col gap-1">
-                            <div className="flex items-center gap-3 text-xs text-gray-500 font-medium uppercase tracking-wide">
-                                <span>{item.publishedDate}</span>
+            {hasVisibleArticles ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {listArticles.map((item: any) => (
+                        <Link href={`/blog/${item.slug}`} key={item.id} className="group flex flex-col gap-3">
+                            <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden bg-gray-100">
+                                {item.coverImage ? (
+                                    <Image 
+                                        src={item.coverImage} 
+                                        alt={item.title} 
+                                        fill 
+                                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                                        unoptimized
+                                    />
+                                ) : (
+                                    <div className="w-full h-full flex items-center justify-center text-gray-400">No Image</div>
+                                )}
                             </div>
-                            <h3 className="text-lg font-bold text-gray-900 leading-snug group-hover:text-red-600 transition-colors line-clamp-2">
-                                {item.title}
-                            </h3>
-                            {item.description && (
-                                <p className="text-sm text-gray-500 line-clamp-2 mt-1">{item.description}</p>
-                            )}
-                        </div>
-                    </Link>
-                ))}
-            </div>
-
-            {/* Thông báo nếu không có bài */}
-            {articles.length === 0 && (
+                            <div className="flex flex-col gap-1">
+                                <div className="flex items-center gap-3 text-xs text-gray-500 font-medium uppercase tracking-wide">
+                                    <span>{item.publishedDate}</span>
+                                </div>
+                                <h3 className="text-lg font-bold text-gray-900 leading-snug group-hover:text-red-600 transition-colors line-clamp-2">
+                                    {item.title}
+                                </h3>
+                                {item.description && (
+                                    <p className="text-sm text-gray-500 line-clamp-2 mt-1">{item.description}</p>
+                                )}
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+            ) : (
                 <div className="text-center py-20 bg-gray-50 rounded-lg">
-                    <p className="text-gray-500">Chưa có bài viết nào.</p>
+                    <p className="text-gray-500">Không có tin tức nào.</p>
                 </div>
             )}
 

@@ -93,7 +93,7 @@ export default function Footer() {
 
         {/* --- COPYRIGHT SECTION --- */}
         <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
-          <p>© 2025 HIT Maz. All rights reserved.</p>
+          <p>© 2026 DieuLinh. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
              {/* Thêm các link phụ ở footer bottom thường thấy ở web xịn */}
             <Link href="" className="hover:text-gray-600 transition-colors">Điều khoản</Link>
